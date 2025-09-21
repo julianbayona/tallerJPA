@@ -28,5 +28,9 @@ public class LibroService {
         return libroRepository.buscar(consulta);
     }
 
+    public void guardar(Libro libro) {
+        libroRepository.save(libro);
+    }
+
 
 }
