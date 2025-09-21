@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+          crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+
+    <title>Biblioteca Uptc</title>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">
+            <img th:src="@{/img/logo.png}" alt="logo" width="30" height="24">
+            Biblioteca Uptc
+        </a>
+        <form th:action="@{/buscar}" class="d-flex">
+            <input autofocus="autofocus" 
+                   name="consulta" 
+                   class="form-control me-2"
+                   type="search" 
+                   th:placeholder="${param.consulta}" 
+                   aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+    </div>
+</nav>
+
+<!-- Contenido principal -->
+<div class="container mt-4 my-style-destacados">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="POST" th:action="@{/libros/guardar}" th:object="${libro}">
+                <h1>Nuevo Libro</h1>
+                
+                <!-- Nombre -->
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" th:field="*{nombre}" id="nombre" placeholder="Nombre del Libro">
+                </div>
+                <br>
+
+                <!-- Descripción -->
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <textarea class="form-control" th:field="*{descripcion}" id="descripcion" rows="3"></textarea>
+                </div>
+                <br>
+
+                <!-- Imagen URL -->
+                <div class="form-group">
+                    <label for="imagenUrl">Url de la imagen</label>
+                    <input type="text" class="form-control" th:field="*{imagenUrl}" id="imagenUrl" placeholder="Url de la imagen">
+                </div>
+                <br>
+
+                <!-- Editorial -->
+                <div class="form-group">
+                    <label for="editorial">Editorial</label>
+                    <select class="form-control" th:field="*{editorial}" id="editorial">
+                        <option th:each="editorial : ${editoriales}" 
+                                th:value="${editorial.id}" 
+                                th:text="${editorial.nombre}">
+                        </option>
+                    </select>
+                </div>
+                <br>
+
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

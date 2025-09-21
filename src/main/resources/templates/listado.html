@@ -26,10 +26,18 @@
         </div>
     </form>
 
+    <!-- Botón para crear libro -->
+    <div class="row">
+        <div class="col-12 text-end mb-4">
+            <a th:href="@{/libros/crear}" class="btn btn-outline-success">Crear Libro</a>
+        </div>
+    </div>
+
     <div th:if="${#lists.isEmpty(libros)}" class="alert alert-info">
         No hay libros para mostrar.
     </div>
 
+    <!-- ...existing code... -->
     <div class="row" th:if="${!#lists.isEmpty(libros)}">
         <div th:each="libro : ${libros}" class="col-md-3 mb-4">
             <div class="card h-100">
