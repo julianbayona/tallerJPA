@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test CORS</title></head>
+<body>
+  <button onclick="testCors()">Test CORS</button>
+  <pre id="result"></pre>
+  <script>
+    function testCors() {
+      fetch('http://localhost:8090/api/libros')
+        .then(res => res.text())
+        .then(data => document.getElementById('result').innerText = "✅ " + data)
+        .catch(err => document.getElementById('result').innerText = "❌ " + err);
+    }
+  </script>
+</body>
+</html>
