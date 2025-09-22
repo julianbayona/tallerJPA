@@ -20,7 +20,13 @@ public class ListadoController {
 
     @GetMapping("/")
     public String mostrarPaginaPrincipal(Model model) {
-        model.addAttribute("libros", libroService.buscarDestacados());
+        var libros = libroService.buscarDestacados();
+        System.out.println("=== DEBUG: Cantidad de libros encontrados: " + libros.size());
+        for (var libro : libros) {
+            System.out.println("- Libro: " + libro.getNombre() + " (Editorial: " + 
+                (libro.getEditorial() != null ? libro.getEditorial().getNombre() : "SIN EDITORIAL") + ")");
+        }
+        model.addAttribute("libros", libros);
         return "listado";
     }
 
