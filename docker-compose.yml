@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  java_app:
+    container_name: java_app
+    build: .
+    image: pee-java-app:1.0.0
+    ports: 
+      - 8090:8080
+    environment:
+      DATABASE_URL: jdbc:mariadb://java_db:3306/mydb
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: root
+    depends_on:
+      - java_db
+
+  java_db:
+    container_name: java_db
+    image: mariadb:10.6
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppass
+    volumes:
+      - ./src/main/resources/schema-mariaDB.sql:/docker-entrypoint-initdb.d/init.sql
+
