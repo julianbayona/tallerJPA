@@ -52,5 +52,6 @@ insert into libro (nombre, autor, descripcion, imagen_url, editorial_id) values
 ('Pedro Páramo', 'Juan Rulfo', 'Un clásico de la literatura mexicana', 'https://example.com/pedro-paramo.jpg', 4),
 ('La casa de los espíritus', 'Isabel Allende', 'Una saga familiar épica', 'https://example.com/casa-espiritus.jpg', 5),
 ('Ficciones', 'Jorge Luis Borges', 'Cuentos laberínticos y filosóficos', 'https://example.com/ficciones.jpg', 6),
-('El túnel', 'Ernesto Sabato', 'Un thriller psicológico argentino', 'https://example.com/tunel.jpg', 7),
-('Crónica de una muerte anunciada', 'Gabriel García Márquez', 'Una crónica sobre el honor y la venganza', 'https://example.com/cronica-muerte.jpg', 1);
+('El túnel', 'Ernesto Sabato', 'Un thriller psicológico argentino', 'https://example.com/tunel.jpg', 7);
+
+ALTER TABLE editorial AUTO_INCREMENT = 100;
