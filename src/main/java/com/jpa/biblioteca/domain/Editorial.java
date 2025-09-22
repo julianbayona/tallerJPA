@@ -12,7 +12,7 @@ public class Editorial {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
     private String nombre;  
-    private String telefono;
+    private String sitioWeb;
 
     public Integer getId() {
         return id;
@@ -30,12 +30,12 @@ public class Editorial {
         this.nombre = nombre;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getSitioWeb() {
+        return sitioWeb;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setSitioWeb(String sitioWeb) {
+        this.sitioWeb = sitioWeb;
     }
 
 

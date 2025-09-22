@@ -11,6 +11,7 @@ public class Libro {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nombre;
+    private String autor;
     private String descripcion;
     private String imagenUrl;
     @ManyToOne
@@ -54,6 +55,14 @@ public class Libro {
 
     public void setImagenUrl(String imagenUrl) {
         this.imagenUrl = imagenUrl;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
     

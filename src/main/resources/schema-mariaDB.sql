@@ -34,26 +34,23 @@ insert into editorial
   'La Huerta Grande',   
   'https://www.lahuertagrande.com/'
 );
-( 6,     
-  'Acantilado',   
-  'https://www.acantilado.es/'
-),
-( 7,     
-  'La Huerta Grande',   
-  'https://www.lahuertagrande.com/'
+
+create table libro (
+    id int primary key auto_increment,
+    nombre varchar(200) not null,
+    autor varchar(200),
+    descripcion text,
+    imagen_url varchar(500),
+    editorial_id int not null,
+    foreign key (editorial_id) references editorial(id)
 );
 
-alter table libro
-add column editorial_id int,
-add foreign key (editorial_id) references editorial(id);
-
-update libro set editorial_id = 1 where id in (1, 5);
-update libro set editorial_id = 2 where id in (2);
-update libro set editorial_id = 3 where id in (3);
-update libro set editorial_id = 4 where id in (4);
-update libro set editorial_id = 5 where id in (6);
-update libro set editorial_id = 6 where id in (7);
-update libro set editorial_id = 7 where id in (8);
-
-alter table libro
-modify editorial_id int not null;
+insert into libro (nombre, autor, descripcion, imagen_url, editorial_id) values
+('Cien años de soledad', 'Gabriel García Márquez', 'Una obra maestra del realismo mágico', 'https://example.com/cien-anos.jpg', 1),
+('El nombre de la rosa', 'Umberto Eco', 'Una novela histórica llena de misterio', 'https://example.com/nombre-rosa.jpg', 2),
+('Rayuela', 'Julio Cortázar', 'Una novela experimental revolucionaria', 'https://example.com/rayuela.jpg', 3),
+('Pedro Páramo', 'Juan Rulfo', 'Un clásico de la literatura mexicana', 'https://example.com/pedro-paramo.jpg', 4),
+('La casa de los espíritus', 'Isabel Allende', 'Una saga familiar épica', 'https://example.com/casa-espiritus.jpg', 5),
+('Ficciones', 'Jorge Luis Borges', 'Cuentos laberínticos y filosóficos', 'https://example.com/ficciones.jpg', 6),
+('El túnel', 'Ernesto Sabato', 'Un thriller psicológico argentino', 'https://example.com/tunel.jpg', 7),
+('Crónica de una muerte anunciada', 'Gabriel García Márquez', 'Una crónica sobre el honor y la venganza', 'https://example.com/cronica-muerte.jpg', 1);
