@@ -18,3 +18,10 @@ insert into libro (id, nombre, autor, descripcion, imagen_url, editorial_id) val
 (6, 'Ficciones', 'Jorge Luis Borges', 'Cuentos laberínticos y filosóficos', 'https://example.com/ficciones.jpg', 6),
 (7, 'El túnel', 'Ernesto Sabato', 'Un thriller psicológico argentino', 'https://example.com/tunel.jpg', 7),
 (8, 'Crónica de una muerte anunciada', 'Gabriel García Márquez', 'Una crónica sobre el honor y la venganza', 'https://example.com/cronica-muerte.jpg', 1);
+
+-- Reiniciar secuencias para evitar conflictos con IDs manuales
+-- La secuencia de editorial debe empezar desde 8 (7 + 1)
+ALTER SEQUENCE editorial_seq RESTART WITH 8;
+
+-- La secuencia de libro debe empezar desde 9 (8 + 1) 
+ALTER SEQUENCE libro_seq RESTART WITH 9;
