@@ -54,4 +54,4 @@ insert into libro (nombre, autor, descripcion, imagen_url, editorial_id) values
 ('Ficciones', 'Jorge Luis Borges', 'Cuentos laberínticos y filosóficos', 'https://example.com/ficciones.jpg', 6),
 ('El túnel', 'Ernesto Sabato', 'Un thriller psicológico argentino', 'https://example.com/tunel.jpg', 7);
 
-ALTER TABLE editorial AUTO_INCREMENT = 100;
+ALTER TABLE libro AUTO_INCREMENT = 8;
